@@ -1,6 +1,5 @@
 <?php
-include 'db_config.php'; // Include your database configuration file
-
+include 'db_config.php'; 
 // Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $task_id = $_POST['id'];
