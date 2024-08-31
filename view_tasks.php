@@ -1,5 +1,5 @@
 <?php
-include 'db_config.php'; // Includes database connection
+include 'db_config.php'; 
 
 $sql = "SELECT * FROM tasks";
 $stmt = sqlsrv_query($conn, $sql); // Execute the query
