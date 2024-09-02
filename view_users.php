@@ -60,7 +60,7 @@
             </thead>
             <tbody>
                 <?php
-                // Include the database configuration file
+                
                 include 'db_config.php';
 
                 // Fetch users from the database
