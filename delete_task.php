@@ -1,5 +1,5 @@
 <?php
-include 'db_config.php'; // Include your database configuration file
+include 'db_config.php'; 
 
 if (isset($_GET['id'])) {
     $task_id = intval($_GET['id']);
