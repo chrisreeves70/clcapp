@@ -1,0 +1,36 @@
+Function AddTask(chore, description, user_id):
+    Connect to Database
+    Prepare SQL Query to Insert Task with Parameters (chore, description, user_id)
+    Execute Query
+    Check if the Query was Successful
+    Return Success or Failure Message
+
+Function MarkTaskAsDone(task_id):
+    Connect to Database
+    Prepare SQL Query to Update Task Status where ID equals task_id
+    Execute Query
+    Check if the Query was Successful
+    Return Success or Failure Message
+
+Function DeleteTask(task_id):
+    Connect to Database
+    Prepare SQL Query to Delete Task where ID equals task_id
+    Execute Query
+    Check if the Query was Successful
+    Return Success or Failure Message
+
+
+Function AddUser(name, email, password_hash):
+    Connect to Database
+    Prepare SQL Query to Insert User with Parameters (name, email, password_hash)
+    Execute Query
+    Check if the Query was Successful
+    Return Success or Failure Message
+
+Function ViewTasks():
+    Connect to Database
+    Prepare SQL Query to Select All Tasks
+    Execute Query
+    Fetch Results
+    Return List of Tasks
+
