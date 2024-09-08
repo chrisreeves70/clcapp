@@ -1,11 +1,10 @@
 <?php
-$serverName = "DESKTOP-7I4N79S\\SQLEXPRESS";
+$serverName = "cloudserveradmin.database.windows.net";
 $connectionOptions = array(
-    "Database" => "track",
-    "UID" => "", // Leave blank for Windows Authentication
-    "PWD" => "", // Leave blank for Windows Authentication
-    "Authentication" => "ActiveDirectoryIntegrated", // Use Windows Authentication
-    "TrustServerCertificate" => true // Bypass SSL certificate validation
+    "Database" => "cloud_test_db",
+    "Uid" => "cloudserveradmin",
+    "PWD" => "Scout1st",
+    "TrustServerCertificate" => false // Recommended to validate SSL certificates
 );
 
 // Establishes the connection
