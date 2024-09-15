@@ -3,7 +3,8 @@ name: Deploy to Azure Storage
 on:
   push:
     branches:
-      - main  # or your default branch
+      - main 
+  workflow_dispatch:  #enable manual triggers
 
 jobs:
   deploy:
@@ -27,4 +28,3 @@ jobs:
         AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
       run: |
         python upload_to_azure.py
-
