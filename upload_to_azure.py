@@ -8,7 +8,7 @@ if not connection_string:
     raise ValueError("AZURE_STORAGE_CONNECTION_STRING environment variable is not set.")
 
 # Define the container name, local file path, and blob name
-container_name = "blob" #blob container name created
+container_name = "blob"  # Blob container name created
 local_file_path = "path/to/your/local/file"  # Path to the file you want to upload
 blob_name = "your-blob-name"  # Name for the file in Azure Blob Storage
 
@@ -21,7 +21,9 @@ container_client = blob_service_client.get_container_client(container_name)
 # Check if the container exists, if not create it
 try:
     container_client.create_container()
+    print(f"Container '{container_name}' created successfully.")
 except Exception as e:
+    # Container might already exist or other error
     print(f"Container already exists or error occurred: {e}")
 
 # Upload the file to the blob
