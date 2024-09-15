@@ -1,0 +1,29 @@
+name: Deploy to Azure
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.0'
+
+    - name: Install dependencies
+      run: composer install --no-dev --prefer-dist
+
+    - name: Deploy to Azure
+      uses: azure/azure-cli-action@v1
+      with:
+        azure-subscription: ${{ secrets.AZURE_SUBSCRIPTION }}
+        script-type: bash
+        script-path: ./deploy.sh
