@@ -8,7 +8,7 @@ if not connection_string:
     raise ValueError("AZURE_STORAGE_CONNECTION_STRING environment variable is not set.")
 
 # Define the container name, local file path, and blob name
-container_name = "your-container-name"
+container_name = "blob" #blob container name created
 local_file_path = "path/to/your/local/file"  # Path to the file you want to upload
 blob_name = "your-blob-name"  # Name for the file in Azure Blob Storage
 
