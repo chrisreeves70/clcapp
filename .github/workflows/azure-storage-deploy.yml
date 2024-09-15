@@ -26,5 +26,5 @@ jobs:
       env:
         AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
       run: |
-        # Example command to upload a file to Azure Storage Blob
-        python upload_to_azure.py  # Replace with your script or command
+        python upload_to_azure.py
+
