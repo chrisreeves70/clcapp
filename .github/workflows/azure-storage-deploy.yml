@@ -1,0 +1,30 @@
+name: Deploy to Azure Storage
+
+on:
+  push:
+    branches:
+      - main  # or your default branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.x'  # Use appropriate version for your application
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+
+    - name: Upload to Azure Storage
+      env:
+        AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
+      run: |
+        # Example command to upload a file to Azure Storage Blob
+        python upload_to_azure.py  # Replace with your script or command
