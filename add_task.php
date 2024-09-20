@@ -1,5 +1,5 @@
 <?php
-include 'db_config.php'; // Include the database configuration file
+include 'db_config.php'; // Includes the database configuration file
 
 // Check if the request method is POST
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
