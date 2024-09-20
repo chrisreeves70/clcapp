@@ -1,21 +1,22 @@
 <?php
-include 'db_config.php'; 
+include 'db_config.php'; // Include the database configuration file
+
 // Check if the form is submitted
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $task_id = $_POST['id'];
-    $is_done = isset($_POST['is_done']) ? 1 : 0; // Checkbox returns 'on' if checked
+if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Ensure the request method is POST
+    $task_id = $_POST['id']; // Get the task ID from the submitted form
+    $is_done = isset($_POST['is_done']) ? 1 : 0; // Set status to 1 if checkbox is checked, otherwise 0
 
     // Update the task status in the database
-    $query = "UPDATE tasks SET is_done = ? WHERE id = ?";
-    $params = array($is_done, $task_id);
-    $stmt = sqlsrv_query($conn, $query, $params);
+    $query = "UPDATE tasks SET is_done = ? WHERE id = ?"; // Prepare the update SQL query
+    $params = array($is_done, $task_id); // Define the parameters for the query
+    $stmt = sqlsrv_query($conn, $query, $params); // Execute the SQL query
 
-    if ($stmt === false) {
-        die(print_r(sqlsrv_errors(), true)); // Print errors if query fails
+    if ($stmt === false) { // Check if the query execution failed
+        die(print_r(sqlsrv_errors(), true)); // Print errors if the query fails
     }
 
-    // Redirect back to the main page after updating
-    header("Location: index.php");
-    exit();
+    // Redirect back to the main page after updating the task status
+    header("Location: index.php"); // Send the user back to the index page
+    exit(); // Exit to ensure no further code is executed
 }
 ?>
