@@ -39,7 +39,7 @@
         .actions {
             display: flex;
             justify-content: center;
-            gap: 10px;
+            gap: 10px; /* Space between action buttons */
         }
     </style>
 </head>
@@ -47,7 +47,7 @@
     <div class="container">
         <h1>Users List</h1>
 
-        <a href="index.php" class="btn btn-primary mb-3">Back to Tasks</a>
+        <a href="index.php" class="btn btn-primary mb-3">Back to Tasks</a> <!-- Button to go back to tasks -->
 
         <table class="table table-striped">
             <thead>
@@ -55,29 +55,29 @@
                     <th>ID</th>
                     <th>Name</th>
                     <th>Email</th>
-                    <th>Actions</th>
+                    <th>Actions</th> <!-- Column for action buttons -->
                 </tr>
             </thead>
             <tbody>
                 <?php
-                
-                include 'db_config.php';
+                include 'db_config.php'; // Include the database configuration file
 
                 // Fetch users from the database
-                $query = "SELECT id, name, email FROM users";
-                $result = sqlsrv_query($conn, $query);
+                $query = "SELECT id, name, email FROM users"; // SQL query to select user details
+                $result = sqlsrv_query($conn, $query); // Execute the query
 
-                if ($result === false) {
-                    die(print_r(sqlsrv_errors(), true));
+                if ($result === false) { // Check if the query execution failed
+                    die(print_r(sqlsrv_errors(), true)); // Print errors if the query fails
                 }
 
+                // Loop through each user and display their details in the table
                 while ($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)) {
                     echo "<tr>";
-                    echo "<td>" . htmlspecialchars($row['id']) . "</td>";
-                    echo "<td>" . htmlspecialchars($row['name']) . "</td>";
-                    echo "<td>" . htmlspecialchars($row['email']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['id']) . "</td>"; // Display User ID
+                    echo "<td>" . htmlspecialchars($row['name']) . "</td>"; // Display User Name
+                    echo "<td>" . htmlspecialchars($row['email']) . "</td>"; // Display User Email
                     echo "<td class='actions'>";
-                    echo "<a href='delete_user.php?id=" . urlencode($row['id']) . "' class='btn btn-danger btn-sm'>Delete</a>";
+                    echo "<a href='delete_user.php?id=" . urlencode($row['id']) . "' class='btn btn-danger btn-sm'>Delete</a>"; // Delete button
                     echo "</td>";
                     echo "</tr>";
                 }
@@ -87,3 +87,4 @@
     </div>
 </body>
 </html>
+
