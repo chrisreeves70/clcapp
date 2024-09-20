@@ -1,16 +1,17 @@
 <?php
-$serverName = "cloudserveradmin.database.windows.net";
+$serverName = "cloudserveradmin.database.windows.net"; // Define the server name
 $connectionOptions = array(
-    "Database" => "cloud_test_db",
-    "Uid" => "cloudserveradmin",
-    "PWD" => "Scout1st",
-    "TrustServerCertificate" => false // Recommended to validate SSL certificates
+    "Database" => "cloud_test_db", // database name
+    "Uid" => "cloudserveradmin", // username for database access
+    "PWD" => "Scout1st", // password for database access
+    "TrustServerCertificate" => false // validates SSL certificates for security
 );
 
-// Establishes the connection
+// Establishes the connection to the database
 $conn = sqlsrv_connect($serverName, $connectionOptions);
 
+// Check if the connection was successful
 if ($conn === false) {
-    die(print_r(sqlsrv_errors(), true)); // Prints errors if connection fails
+    die(print_r(sqlsrv_errors(), true)); // Print errors if the connection fails
 }
 ?>
